@@ -51,7 +51,7 @@ img {
 
 .description {
   color: $Dark-Gray;
-  line-height: 1.4;
+  line-height: 1.5;
   margin-bottom: 3rem;
 }
 
@@ -77,7 +77,7 @@ img {
     transition: 0.5s opacity;
     opacity: 0;
 
-    &.active {
+    &.active-photo {
       opacity: 1;
     }
 
@@ -104,6 +104,7 @@ img {
   &__btn-container {
     display: flex;
     position: absolute;
+    z-index: 1;
     left: 100%;
     bottom: 0;
   }
@@ -116,7 +117,13 @@ img {
     align-items: center;
     outline: none;
     border: none;
-    background: $Black;
+    background-color: $Black;
+    transition: 0.3s background-color;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $Very-Dark-Gray;
+    }
   }
 
   &__text-container {
@@ -137,10 +144,10 @@ img {
     flex-direction: column;
     justify-content: center;
     opacity: 0;
-    transition: 0.5s transform, 0.5s opacity;
+    transition: 0.6s transform cubic-bezier(0.165, 0.84, 0.44, 1), 0.3s opacity;
     overflow: hidden;
 
-    &.active {
+    &.active-text {
       transform: translateX(0);
       opacity: 1;
     }
@@ -148,10 +155,16 @@ img {
 
   &__arrow-link {
     text-transform: uppercase;
+    align-self: flex-start;
     display: flex;
     align-items: center;
     color: $Black;
     font-weight: 600;
+    transition: 0.3s opacity;
+
+    &:hover {
+      opacity: 0.6;
+    }
 
     span {
       display: inline-block;
@@ -168,7 +181,7 @@ img {
 .about {
   @extend .container;
   display: grid;
-  grid-template-columns: 440px 1fr 440px;
+  grid-template-columns: 1fr 560px 1fr;
 
   &__col-one {
     min-height: 266px;
@@ -185,8 +198,8 @@ img {
   }
 
   &__content {
-    padding: 3rem;
-    max-width: 51rem;
+    padding: 2rem;
+    max-width: 51.5rem;
   }
 
   &__heading {
@@ -199,6 +212,8 @@ img {
   &__description {
     @extend .description;
     margin-bottom: 0;
+    font-size: 1.1rem;
+    line-height: 1.7;
   }
 
   &__col-three {
