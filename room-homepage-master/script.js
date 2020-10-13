@@ -27,7 +27,6 @@ const prevSlide = () => {
 
   const currentSlideText = document.querySelector(".active-text");
   currentSlideText.classList.remove("active-text");
-  console.log(currentSlideText);
 
   currentSlideImg.classList.remove("active-photo");
 
@@ -45,3 +44,17 @@ const prevSlide = () => {
 
 btnRight.addEventListener("click", nextSlide);
 btnLeft.addEventListener("click", prevSlide);
+
+// navigation
+const openBtn = document.querySelector(".nav__open-btn");
+const closeBtn = document.querySelector(".nav__close-btn");
+const navWrapper = document.querySelector(".nav__list-wrapper");
+
+openBtn.addEventListener("click", () => {
+  navWrapper.classList.add("open");
+  document.body.classList.add("dark");
+});
+closeBtn.addEventListener("click", () => {
+  navWrapper.classList.remove("open");
+  document.body.classList.remove("dark");
+});
