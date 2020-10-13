@@ -47,6 +47,16 @@ img {
   font-size: 3.8rem;
   margin-bottom: 3rem;
   font-weight: 600;
+
+  @include m-q(1150px) {
+    margin-top: 10%;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  @include m-q(840px) {
+    margin-top: 0;
+  }
 }
 
 .description {
@@ -55,15 +65,120 @@ img {
   margin-bottom: 3rem;
 }
 
+.nav {
+  position: absolute;
+  // position: fixed;
+  z-index: 1;
+  width: 100%;
+  overflow-x: hidden;
+
+  &__open-btn {
+    display: none;
+
+    @include m-q(600px) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+      padding: 0.5rem;
+      background: none;
+      border: none;
+    }
+  }
+
+  &__close-btn {
+    @extend .nav__open-btn;
+  }
+
+  &__wrapper {
+    @extend .container;
+    padding: 0 5rem;
+    display: flex;
+    align-items: center;
+    height: 11rem;
+
+    @include m-q(600px){
+      padding: 0 2rem;
+    }
+  }
+
+  &__site-link {
+    margin-right: 5rem;
+
+    @include m-q(600px) {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-right: 0;
+    }
+  }
+
+  &__list-wrapper {
+    @include m-q(600px) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 11rem;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: $White;
+      transition: 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+      transform: translateX(100%);
+
+      &.open {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  &__nav-list {
+    display: flex;
+    list-style: none;
+  }
+
+  &__item {
+    margin: 0.5rem;
+
+    @include m-q(600px) {
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__link {
+    padding: 1rem;
+    color: $White;
+
+    @include m-q(600px) {
+      color: $Black;
+      padding: 0.5rem;
+    }
+  }
+}
+
 .slider {
   @extend .container;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   overflow-x: hidden;
 
+  @include m-q(840px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
   &__img-container {
     position: relative;
     grid-column: 1/8;
+
+    @include m-q(840px) {
+      grid-column: 1/2;
+      grid-row: 1/2;
+    }
   }
 
   &__img {
@@ -107,6 +222,11 @@ img {
     z-index: 1;
     left: 100%;
     bottom: 0;
+
+    @include m-q(840px) {
+      left: unset;
+      right: 0;
+    }
   }
 
   &__arrow-btn {
@@ -130,6 +250,11 @@ img {
     grid-column: 8/13;
     min-height: 534px;
     position: relative;
+
+    @include m-q(840px) {
+      grid-column: 1/2;
+      grid-row: 2/3;
+    }
   }
 
   &__text-content {
@@ -146,6 +271,15 @@ img {
     opacity: 0;
     transition: 0.6s transform cubic-bezier(0.165, 0.84, 0.44, 1), 0.3s opacity;
     overflow: hidden;
+
+    @include m-q(1150px) {
+      padding: 10%;
+      justify-content: unset;
+    }
+
+    @include m-q(840px) {
+      justify-content: center;
+    }
 
     &.active-text {
       transform: translateX(0);
@@ -183,18 +317,36 @@ img {
   display: grid;
   grid-template-columns: 1fr 560px 1fr;
 
+  @include m-q(1150px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include m-q(840px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
   &__col-one {
     min-height: 266px;
     background: url(./images/image-about-dark.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+
+    @include m-q(840px) {
+      grid-column: 1/2;
+    }
   }
 
   &__col-two {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @include m-q(840px) {
+      grid-column: 1/3;
+      grid-row: 2/3;
+    }
   }
 
   &__content {
@@ -222,5 +374,10 @@ img {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+
+    @include m-q(840px) {
+      grid-column: 2/3;
+      grid-row: 1/2;
+    }
   }
 }
