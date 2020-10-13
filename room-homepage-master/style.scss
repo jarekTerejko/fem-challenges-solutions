@@ -95,9 +95,9 @@ img {
     padding: 0 5rem;
     display: flex;
     align-items: center;
-    height: 11rem;
+    min-height: 11rem;
 
-    @include m-q(600px){
+    @include m-q(600px) {
       padding: 0 2rem;
     }
   }
@@ -119,7 +119,7 @@ img {
       top: 0;
       left: 0;
       width: 100%;
-      height: 11rem;
+      min-height: 11rem;
       padding: 0 2rem;
       display: flex;
       align-items: center;
@@ -192,6 +192,10 @@ img {
     transition: 0.5s opacity;
     opacity: 0;
 
+    @include m-q(375px) {
+      min-height: 360px;
+    }
+
     &.active-photo {
       opacity: 1;
     }
@@ -201,18 +205,41 @@ img {
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
+
+      @include m-q(375px) {
+        background: url(./images/mobile-image-hero-1.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
     }
+
     &:nth-child(2) {
       background: url(./images/desktop-image-hero-2.jpg);
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
+
+      @include m-q(375px) {
+        background: url(./images/mobile-image-hero-2.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
     }
+
     &:nth-child(3) {
       background: url(./images/desktop-image-hero-3.jpg);
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
+
+      @include m-q(375px) {
+        background: url(./images/mobile-image-hero-3.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
     }
   }
 
@@ -255,6 +282,14 @@ img {
       grid-column: 1/2;
       grid-row: 2/3;
     }
+
+    @include m-q(375px) {
+      min-height: 410px;
+    }
+
+    @include m-q(325px) {
+      min-height: 510px;
+    }
   }
 
   &__text-content {
@@ -279,6 +314,10 @@ img {
 
     @include m-q(840px) {
       justify-content: center;
+    }
+
+    @include m-q(375px) {
+      padding: 2.5rem;
     }
 
     &.active-text {
@@ -316,6 +355,7 @@ img {
   @extend .container;
   display: grid;
   grid-template-columns: 1fr 560px 1fr;
+  position: relative;
 
   @include m-q(1150px) {
     grid-template-columns: repeat(3, 1fr);
@@ -324,6 +364,11 @@ img {
   @include m-q(840px) {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
+  }
+
+  @include m-q(420px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
   }
 
   &__col-one {
@@ -347,10 +392,15 @@ img {
       grid-column: 1/3;
       grid-row: 2/3;
     }
+
+    @include m-q(420px) {
+      grid-column: 1/2;
+      grid-row: 2/3;
+    }
   }
 
   &__content {
-    padding: 2rem;
+    padding: 2.5rem;
     max-width: 51.5rem;
   }
 
@@ -379,5 +429,17 @@ img {
       grid-column: 2/3;
       grid-row: 1/2;
     }
+
+    @include m-q(420px) {
+      grid-column: 1/2;
+      grid-row: 3/4;
+    }
+  }
+
+  .attribution {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
