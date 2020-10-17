@@ -53,6 +53,11 @@ img {
   align-items: center;
   justify-content: center;
   position: relative;
+
+  @include m-q(1015px) {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
 }
 
 .heading {
@@ -60,6 +65,10 @@ img {
   text-transform: uppercase;
   margin-bottom: 3rem;
   color: $Very-dark-desaturated-blue;
+
+  @include m-q(1015px) {
+    text-align: center;
+  }
 }
 
 .faq {
@@ -71,6 +80,22 @@ img {
   grid-template-columns: 460px 460px;
   border-radius: 30px;
   box-shadow: 0px 8px 25px 0px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: 0.5s opacity;
+
+  &.show {
+    opacity: 1;
+  }
+
+  @include m-q(1015px) {
+    display: block;
+    width: 100%;
+    min-height: 58rem;
+  }
+
+  @include m-q(375px) {
+    min-height: 60rem;
+  }
 
   &__col-one {
     background-image: url(./images/bg-pattern-desktop.svg);
@@ -79,6 +104,15 @@ img {
     background-repeat: no-repeat;
     position: relative;
     overflow-x: hidden;
+
+    @include m-q(1015px) {
+      background-image: url(./images/bg-pattern-mobile.svg);
+      background-position-x: center;
+      background-position-y: 0;
+      background-repeat: no-repeat;
+      overflow: initial;
+      min-height: 14rem;
+    }
   }
 
   &__photo {
@@ -86,11 +120,21 @@ img {
     left: -80px;
     top: 50%;
     transform: translateY(-50%);
+
+    @include m-q(1015px) {
+      left: calc(50% - 14px);
+      transform: translateX(-50%);
+      top: -76%;
+    }
   }
 
   &__col-two {
     padding: 7rem 0;
     position: relative;
+
+    @include m-q(1015px) {
+      padding: 0 2.5rem 5rem 2.5rem;
+    }
 
     &::before {
       content: "";
@@ -101,17 +145,25 @@ img {
       position: absolute;
       left: calc(-100% - 93px);
       top: 40%;
+
+      @include m-q(1015px) {
+        display: none;
+      }
     }
   }
 
   &__list {
     list-style: none;
     max-width: 35rem;
+
+    @include m-q(1015px) {
+      margin: 0 auto;
+    }
   }
 
   &__list-item {
     border-bottom: 1px solid $Light-grayish-blue;
-    padding: 1.7rem 0;
+    padding: 1.4rem 0;
   }
 
   &__question {
@@ -128,6 +180,13 @@ img {
     transition: 0.3s;
     color: $Very-dark-grayish-blue;
     cursor: pointer;
+    outline-offset: 0.5rem;
+    padding: 0.3rem;
+    padding-left: 0;
+
+    @include m-q(1015px) {
+      padding-right: 2rem;
+    }
 
     &:hover {
       color: $Soft-red;
@@ -140,14 +199,18 @@ img {
       width: 10px;
       height: 7px;
       right: 15px;
-      transition: 0.3s;
+      transition: 0.3s transform;
+
+      @include m-q(1015px) {
+        right: 3px;
+      }
     }
 
     &.open {
       font-weight: 700;
 
       &:hover {
-        color: initial;
+        color: $Very-dark-grayish-blue;
       }
 
       &::before {
@@ -159,7 +222,7 @@ img {
   &__answer-container {
     max-height: 0;
     overflow: hidden;
-    transition: 0.3s;
+    // transition: 0.3s;
 
     &.active {
       max-height: 700px;
@@ -172,12 +235,16 @@ img {
   }
 
   &__answer {
-    transition: 0.3s;
+    transition: 0.3s transform, 0.3s opacity;
     padding: 1rem 0 0rem 0;
     max-width: 32rem;
     transform: translateY(20px);
     opacity: 0;
     color: $Dark-grayish-blue;
     line-height: 1.4;
+
+    @include m-q(1015px) {
+      padding-right: 2rem;
+    }
   }
 }
