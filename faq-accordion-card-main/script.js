@@ -22,7 +22,6 @@ const photo = document.querySelector(".faq__photo");
 
 const checkWindowWidth = () => {
   if (window.innerWidth < 1015) {
-    console.log(photo);
     photo.src = "./images/illustration-woman-online-mobile.svg";
   } else {
     photo.src = "./images/illustration-woman-online-desktop.svg";
