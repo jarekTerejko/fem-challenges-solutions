@@ -35,9 +35,21 @@ const TodosContextProvider = (props) => {
     setTodos(newTodos);
   };
 
+  const removeTodo = (id) => {
+    const newTodos = todos.filter((todo) => todo.id !== id);
+    setTodos(newTodos);
+  };
+
   return (
     <TodosContext.Provider
-      value={{ todos, setTodos, addTodo, todosToRender, toggleTodo }}
+      value={{
+        todos,
+        setTodos,
+        addTodo,
+        todosToRender,
+        toggleTodo,
+        removeTodo,
+      }}
     >
       {props.children}
     </TodosContext.Provider>

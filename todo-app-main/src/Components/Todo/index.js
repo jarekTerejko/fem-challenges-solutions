@@ -13,7 +13,7 @@ import RemoveImg from "../../images/icon-cross.svg";
 import CheckedImg from "../../images/icon-check.svg";
 
 const Todo = ({ todo }) => {
-  const { toggleTodo } = useContext(TodosContext);
+  const { toggleTodo, removeTodo } = useContext(TodosContext);
 
   console.log(todo);
   return (
@@ -25,7 +25,7 @@ const Todo = ({ todo }) => {
         <TodoCheckedImg src={CheckedImg} />
       </TodoCircle>
       <TodoText>{todo.todoText}</TodoText>
-      <TodoBtnRemove>
+      <TodoBtnRemove onClick={() => removeTodo(todo.id)}>
         <TodoRemoveImg src={RemoveImg} />
       </TodoBtnRemove>
     </TodoWrapper>
