@@ -3,10 +3,14 @@ import React, { useState, createContext, useEffect } from "react";
 export const TodosContext = createContext();
 
 const TodosContextProvider = (props) => {
-  const [todos, setTodos] = useState([]);
+  const initialData = JSON.parse(localStorage.getItem("todos")) || [];
+
+  const [todos, setTodos] = useState(initialData);
   const [todosToRender, setTodosToRender] = useState(todos);
 
   useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+
     setTodosToRender(todos);
     // return () => {
     //   cleanup
