@@ -1,26 +1,30 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   TodoWrapper,
   TodoCircle,
-  TodoChecked,
   TodoCheckedImg,
   TodoText,
   TodoBtnRemove,
   TodoRemoveImg,
 } from "./TodoElements";
+import { TodosContext } from "../../contexts/TodosContext";
 
-import RemoveImg from '../../images/icon-cross.svg'
-import CheckedImg from '../../images/icon-check.svg'
+import RemoveImg from "../../images/icon-cross.svg";
+import CheckedImg from "../../images/icon-check.svg";
 
+const Todo = ({ todo }) => {
+  const { toggleTodo } = useContext(TodosContext);
 
-const Todo = () => {
+  console.log(todo);
   return (
     <TodoWrapper>
-      <TodoCircle>
-        {/* <TodoChecked></TodoChecked> */}
+      <TodoCircle
+        isCompleted={todo.isCompleted}
+        onClick={() => toggleTodo(todo.id)}
+      >
         <TodoCheckedImg src={CheckedImg} />
       </TodoCircle>
-      <TodoText>Read for one hour</TodoText>
+      <TodoText>{todo.todoText}</TodoText>
       <TodoBtnRemove>
         <TodoRemoveImg src={RemoveImg} />
       </TodoBtnRemove>

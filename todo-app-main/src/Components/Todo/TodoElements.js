@@ -1,14 +1,12 @@
 import styled from "styled-components";
-import CheckedImg from "../../images/icon-check.svg";
 
 export const TodoWrapper = styled.li`
   display: grid;
-  grid-template-columns: 24px 1fr 30px;
+  grid-template-columns: 24px 1fr 24px;
   gap: 20px;
   align-items: center;
   padding: 2rem;
   background-color: var(--white);
-
   border-bottom: solid 2px var(--very-light-grayish-blue);
 
   &:first-of-type {
@@ -20,18 +18,19 @@ export const TodoCircle = styled.div`
   height: 2.4rem;
   width: 2.4rem;
   border-radius: 50%;
-  /* border: solid 0.2rem; */
-  /* border-color: var(--very-light-grayish-blue); */
-  background: var(--very-light-grayish-blue);
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   cursor: pointer;
-
-  /* &:hover{
-        border-color: ;
-    } */
+  background-image: ${({ isCompleted }) =>
+    !isCompleted
+      ? `linear-gradient(var(--very-light-grayish-blue), var(--very-light-grayish-blue))`
+      : `linear-gradient(
+      145deg,
+      hsl(192, 100%, 67%) 0%,
+      hsl(280, 87%, 65%)
+    )`};
 
   &::before {
     content: "";
@@ -53,6 +52,7 @@ export const TodoCircle = styled.div`
       hsl(280, 87%, 65%)
     );
     border-radius: 50%;
+    display: ${({ isCompleted }) => (isCompleted ? "none" : "block")};
   }
 
   &:hover::before {
@@ -70,22 +70,8 @@ export const TodoCircle = styled.div`
     background: var(--white);
     z-index: 0;
     pointer-events: none;
+    display: ${({ isCompleted }) => (isCompleted ? "none" : "block")};
   }
-`;
-export const TodoChecked = styled.div`
-  margin: auto;
-  background: var(--white);
-  /* background: red; */
-  background-image: url(${CheckedImg});
-  /* background-size: ; */
-  background-repeat: no-repeat;
-
-  z-index: 1;
-  position: relative;
-  z-index: 2;
-  height: 100%;
-  width: 100%;
-  border-radius: 50%;
 `;
 
 export const TodoCheckedImg = styled.img``;
@@ -95,5 +81,7 @@ export const TodoText = styled.p``;
 export const TodoBtnRemove = styled.button`
   border: none;
   background: none;
+  cursor: pointer;
+  padding: .3rem;
 `;
 export const TodoRemoveImg = styled.img``;

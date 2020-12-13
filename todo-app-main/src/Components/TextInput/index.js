@@ -13,8 +13,10 @@ const TextInput = () => {
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    addTodo(todoText);
-    setTodoText("");
+    if (todoText.trim() !== "") {
+      addTodo(todoText);
+      setTodoText("");
+    }
   };
 
   return (

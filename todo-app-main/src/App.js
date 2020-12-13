@@ -2,7 +2,7 @@ import React from "react";
 import { Container } from "./Components/Container";
 import Header from "./Components/Header";
 import TextInput from "./Components/TextInput";
-import Todo from "./Components/Todo";
+import TodoList from "./Components/TodoList";
 import TodosContextProvider from "./contexts/TodosContext";
 
 const App = () => {
@@ -13,8 +13,7 @@ const App = () => {
         <Container>
           <TextInput />
           <div>
-            <Todo />
-            <Todo />
+            <TodoList />
           </div>
         </Container>
       </div>
