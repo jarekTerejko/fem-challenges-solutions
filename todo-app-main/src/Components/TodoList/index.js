@@ -4,17 +4,35 @@ import Todo from "../Todo/index";
 import { TodosContext } from "../../contexts/TodosContext";
 
 const TodoList = () => {
-  const { todosToRender } = useContext(TodosContext);
+  const { todos, todosList } = useContext(TodosContext);
+  let list = null;
 
-  return (
-    <TodoListWrapper>
-      {todosToRender.length > 0
-        ? todosToRender.map((todo) => {
-            return <Todo key={todo.id} todo={todo} />;
-          })
-        : null}
-    </TodoListWrapper>
-  );
+  const renderList = () => {
+    if (todosList === "all") {
+      list = todos.map((todo) => {
+        return <Todo key={todo.id} todo={todo} />;
+      });
+    }
+
+    if (todosList === "active") {
+      list = todos
+        .filter((todo) => !todo.isCompleted)
+        .map((todo) => {
+          return <Todo key={todo.id} todo={todo} />;
+        });
+    }
+
+    if (todosList === "completed") {
+      list = todos
+        .filter((todo) => todo.isCompleted)
+        .map((todo) => {
+          return <Todo key={todo.id} todo={todo} />;
+        });
+    }
+    return list;
+  };
+
+  return <TodoListWrapper>{renderList()}</TodoListWrapper>;
 };
 
 export default TodoList;

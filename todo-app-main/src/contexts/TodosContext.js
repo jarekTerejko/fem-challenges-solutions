@@ -6,12 +6,10 @@ const TodosContextProvider = (props) => {
   const initialData = JSON.parse(localStorage.getItem("todos")) || [];
 
   const [todos, setTodos] = useState(initialData);
-  const [todosToRender, setTodosToRender] = useState(todos);
+  const [todosList, setTodosList] = useState("all");
 
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
-
-    setTodosToRender(todos);
     // return () => {
     //   cleanup
     // }
@@ -44,15 +42,22 @@ const TodosContextProvider = (props) => {
     setTodos(newTodos);
   };
 
+  const removeCompleted = () => {
+    const newTodos = todos.filter((todo) => !todo.isCompleted);
+    setTodos(newTodos);
+  };
+
   return (
     <TodosContext.Provider
       value={{
         todos,
         setTodos,
         addTodo,
-        todosToRender,
         toggleTodo,
         removeTodo,
+        removeCompleted,
+        todosList,
+        setTodosList,
       }}
     >
       {props.children}

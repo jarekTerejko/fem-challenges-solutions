@@ -1,5 +1,6 @@
 import React from "react";
 import { Container } from "./Components/Container";
+import ControlPanel from "./Components/ControlPanel";
 import Header from "./Components/Header";
 import TextInput from "./Components/TextInput";
 import TodoList from "./Components/TodoList";
@@ -14,6 +15,7 @@ const App = () => {
           <TextInput />
           <div>
             <TodoList />
+            <ControlPanel />
           </div>
         </Container>
       </div>

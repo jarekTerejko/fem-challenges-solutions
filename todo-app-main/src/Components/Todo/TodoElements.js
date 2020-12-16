@@ -82,6 +82,6 @@ export const TodoBtnRemove = styled.button`
   border: none;
   background: none;
   cursor: pointer;
-  padding: .3rem;
+  padding: 0.3rem;
 `;
 export const TodoRemoveImg = styled.img``;
