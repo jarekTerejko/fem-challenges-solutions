@@ -6,22 +6,22 @@ export const TextInputWrapper = styled.form`
   padding: 2rem;
   border-radius: 0.5rem;
   display: grid;
-  grid-template-columns: 24px 1fr;
+  grid-template-columns: 22px 1fr;
   gap: 20px;
   background-color: var(--white);
   transition: 0.3s;
 
   @media (max-width: 620px) {
-    margin-top: -9.4rem;
-    padding: 1.3rem 2rem;
+    margin-top: -9.6rem;
+    padding: 1.4rem 2rem;
     margin-bottom: 2rem;
     gap: 10px;
   }
 `;
 
 export const TextInputCircle = styled.div`
-  height: 2.4rem;
-  width: 2.4rem;
+  height: 2.2rem;
+  width: 2.2rem;
   border-radius: 50%;
   border: solid 0.1rem;
   border-color: var(--very-light-grayish-blue);

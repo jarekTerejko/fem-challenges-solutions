@@ -13,10 +13,8 @@ const App = () => {
         <Header />
         <Container>
           <TextInput />
-          <div>
             <TodoList />
             <ControlPanel />
-          </div>
         </Container>
       </div>
     </TodosContextProvider>

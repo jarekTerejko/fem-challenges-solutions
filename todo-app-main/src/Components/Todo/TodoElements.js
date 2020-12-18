@@ -2,12 +2,23 @@ import styled from "styled-components";
 
 export const TodoWrapper = styled.li`
   display: grid;
-  grid-template-columns: 24px 1fr 24px;
+  grid-template-columns: 22px 1fr 22px;
   gap: 20px;
   align-items: center;
   padding: 2rem;
   background-color: var(--white);
-  border-bottom: solid 2px var(--very-light-grayish-blue);
+  border-bottom: solid 1px var(--very-light-grayish-blue);
+  cursor: pointer;
+
+  @media (max-width: 620px) {
+    padding: 1.4rem 2rem;
+    font-size: 1.4rem;
+    gap: 10px;
+  }
+
+  &:hover :last-child {
+    visibility: visible;
+  }
 
   &:first-of-type {
     border-top-left-radius: 0.5rem;
@@ -15,8 +26,8 @@ export const TodoWrapper = styled.li`
   }
 `;
 export const TodoCircle = styled.div`
-  height: 2.4rem;
-  width: 2.4rem;
+  height: 2.2rem;
+  width: 2.2rem;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -35,10 +46,10 @@ export const TodoCircle = styled.div`
   &::before {
     content: "";
     position: absolute;
-    top: -2px;
-    left: -2px;
-    width: calc(100% + 0.4rem);
-    height: calc(100% + 0.4rem);
+    top: -1px;
+    left: -1px;
+    width: calc(100% + 0.2rem);
+    height: calc(100% + 0.2rem);
     top: 0;
     left: 0;
     width: 100%;
@@ -62,10 +73,10 @@ export const TodoCircle = styled.div`
   &:after {
     content: "";
     position: absolute;
-    top: 2px;
-    left: 2px;
-    width: calc(100% - 0.4rem);
-    height: calc(100% - 0.4rem);
+    top: 1px;
+    left: 1px;
+    width: calc(100% - 0.2rem);
+    height: calc(100% - 0.2rem);
     border-radius: 50%;
     background: var(--white);
     z-index: 0;
@@ -76,12 +87,21 @@ export const TodoCircle = styled.div`
 
 export const TodoCheckedImg = styled.img``;
 
-export const TodoText = styled.p``;
+export const TodoText = styled.p`
+  color: ${({ isCompleted }) =>
+    isCompleted ? "var(--light-grayish-blue)" : ""};
+  text-decoration: ${({ isCompleted }) => (isCompleted ? "line-through" : "")};
+`;
 
 export const TodoBtnRemove = styled.button`
   border: none;
   background: none;
   cursor: pointer;
-  padding: 0.3rem;
+  padding: 0.3rem 0.3rem;
+  visibility: hidden;
+
+  @media (max-width: 620px) {
+    visibility: visible;
+  }
 `;
 export const TodoRemoveImg = styled.img``;

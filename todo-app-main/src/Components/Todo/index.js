@@ -24,7 +24,7 @@ const Todo = ({ todo }) => {
       >
         <TodoCheckedImg src={CheckedImg} />
       </TodoCircle>
-      <TodoText>{todo.todoText}</TodoText>
+      <TodoText isCompleted={todo.isCompleted}>{todo.todoText}</TodoText>
       <TodoBtnRemove onClick={() => removeTodo(todo.id)}>
         <TodoRemoveImg src={RemoveImg} />
       </TodoBtnRemove>
