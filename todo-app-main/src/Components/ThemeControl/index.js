@@ -10,7 +10,7 @@ const ThemeControl = () => {
   return (
     <ThemeControlBtn onClick={changeTheme}>
       <ThemeControlImg
-        src={activeTheme === "light" ? `${SunImg}` : `${MoonImg}`}
+        src={activeTheme === "light" ? `${MoonImg}` : `${SunImg}`}
       />
     </ThemeControlBtn>
   );
