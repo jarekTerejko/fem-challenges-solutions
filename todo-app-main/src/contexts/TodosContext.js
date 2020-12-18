@@ -4,9 +4,12 @@ export const TodosContext = createContext();
 
 const TodosContextProvider = (props) => {
   const initialData = JSON.parse(localStorage.getItem("todos")) || [];
+  const initialTheme =
+    JSON.parse(localStorage.getItem("activeTheme")) || "light";
 
   const [todos, setTodos] = useState(initialData);
   const [todosList, setTodosList] = useState("all");
+  const [activeTheme, setActiveTheme] = useState(initialTheme);
 
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
@@ -14,6 +17,22 @@ const TodosContextProvider = (props) => {
     //   cleanup
     // }
   }, [todos]);
+
+  useEffect(() => {
+    localStorage.setItem("activeTheme", JSON.stringify(activeTheme));
+    document.documentElement.setAttribute("data-theme", activeTheme);
+
+    // return () => {
+    //   cleanup
+    // }
+  }, []);
+
+  const changeTheme = () => {
+    const newTheme = activeTheme === "light" ? "dark" : "light";
+    setActiveTheme(newTheme);
+    document.documentElement.setAttribute("data-theme", newTheme);
+    localStorage.setItem("activeTheme", JSON.stringify(newTheme));
+  };
 
   const addTodo = (todoText) => {
     setTodos([
@@ -58,6 +77,8 @@ const TodosContextProvider = (props) => {
         removeCompleted,
         todosList,
         setTodosList,
+        activeTheme,
+        changeTheme,
       }}
     >
       {props.children}
