@@ -8,15 +8,38 @@ export const ControlPanelWrapper = styled.div`
   background-color: var(--white);
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
+
+  @media (max-width: 620px) {
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    padding: 1.5rem 2rem;
+  }
 `;
 
 export const ControlPanelColLeft = styled.div`
   font-size: 1.6rem;
   color: var(--dark-grayish-blue);
+
+  @media (max-width: 620px) {
+    font-size: 1.2rem;
+  }
 `;
 
 export const ControlPanelColCenter = styled.div`
   text-align: center;
+
+  @media (max-width: 620px) {
+    grid-column: 1/3;
+    grid-row: 2/3;
+    position: absolute;
+    left: -20px;
+    top: 40px;
+    width: calc(100% + 4rem);
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    padding: 1.4rem 2rem;
+  }
 `;
 
 export const ControlPanelButton = styled.button`
@@ -26,10 +49,11 @@ export const ControlPanelButton = styled.button`
   font-family: "Josefin Sans", sans-serif;
   font-size: 1.6rem;
   color: var(--dark-grayish-blue);
-
+  text-transform: capitalize;
   padding: 0.4rem 0.4rem 0.1rem 0.4rem;
   transition: 0.3s color;
   margin: 0 0.4rem;
+  outline-offset: 1px;
 
   &:first-child {
     color: ${({ todosList }) =>

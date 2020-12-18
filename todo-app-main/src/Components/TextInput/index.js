@@ -23,6 +23,7 @@ const TextInput = () => {
     <TextInputWrapper onSubmit={handleOnSubmit}>
       <TextInputCircle></TextInputCircle>
       <TextInputEl
+        placeholder="Create a new todo..."
         type="text"
         value={todoText}
         name="todo-input"

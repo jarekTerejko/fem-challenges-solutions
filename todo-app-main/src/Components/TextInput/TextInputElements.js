@@ -9,13 +9,21 @@ export const TextInputWrapper = styled.form`
   grid-template-columns: 24px 1fr;
   gap: 20px;
   background-color: var(--white);
+  transition: 0.3s;
+
+  @media (max-width: 620px) {
+    margin-top: -9.4rem;
+    padding: 1.3rem 2rem;
+    margin-bottom: 2rem;
+    gap: 10px;
+  }
 `;
 
 export const TextInputCircle = styled.div`
   height: 2.4rem;
   width: 2.4rem;
   border-radius: 50%;
-  border: solid 0.2rem;
+  border: solid 0.1rem;
   border-color: var(--very-light-grayish-blue);
 `;
 
@@ -26,4 +34,14 @@ export const TextInputEl = styled.input`
   font-size: 1.8rem;
   display: block;
   width: 100%;
+  color: var(--very-dark-grayish-blue);
+  outline-offset: 2px;
+
+  @media (max-width: 620px) {
+    font-size: 1.4rem;
+  }
+
+  &::placeholder {
+    color: var(--dark-grayish-blue);
+  }
 `;

@@ -8,10 +8,15 @@ export const HeaderWrapper = styled.header`
     activeTheme === "light"
       ? `url(${DesktopBgLight})`
       : `url(${DesktopBgDark})`};
-  min-height: 300px;
+  height: 300px;
   background-repeat: no-repeat;
   background-size: cover;
   transition: 0.3s;
+
+  @media (max-width: 620px) {
+    padding-top: 5rem;
+    max-height: 200px;
+  }
 `;
 
 export const HeaderHeadingWrapper = styled.div`
@@ -24,5 +29,5 @@ export const HeaderTitleH1 = styled.h1`
   text-transform: uppercase;
   color: #fff;
   font-size: 3.6rem;
-  letter-spacing: 5px;
+  letter-spacing: 10px;
 `;
