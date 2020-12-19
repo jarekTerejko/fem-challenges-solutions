@@ -21,11 +21,21 @@ const TodosContextProvider = (props) => {
   useEffect(() => {
     localStorage.setItem("activeTheme", JSON.stringify(activeTheme));
     document.documentElement.setAttribute("data-theme", activeTheme);
-
     // return () => {
     //   cleanup
     // }
+    // eslint-disable-next-line
   }, []);
+
+  const handleOnDragEnd = (result) => {
+    if (!result.destination) return;
+
+    const items = [...todos];
+    const [reorderItem] = items.splice(result.source.index, 1);
+    items.splice(result.destination.index, 0, reorderItem);
+
+    setTodos(items);
+  };
 
   const changeTheme = () => {
     const newTheme = activeTheme === "light" ? "dark" : "light";
@@ -79,6 +89,7 @@ const TodosContextProvider = (props) => {
         setTodosList,
         activeTheme,
         changeTheme,
+        handleOnDragEnd,
       }}
     >
       {props.children}

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const TodoWrapper = styled.li`
+export const TodoWrapper = styled.div`
   display: grid;
   grid-template-columns: 22px 1fr 22px;
   gap: 20px;
