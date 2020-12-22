@@ -5,6 +5,7 @@ export const ControlPanelWrapper = styled.div`
   grid-template-columns: 160px 1fr 160px;
   align-items: center;
   background-color: var(--very-light-gray);
+  padding-bottom: 7rem;
 
   @media (max-width: 620px) {
     grid-template-columns: 1fr 1fr;
@@ -35,7 +36,7 @@ export const ControlPanelColCenter = styled.div`
   @media (max-width: 620px) {
     grid-column: 1/3;
     grid-row: 2/3;
-    margin-top: 4rem;
+    margin-top: 2rem;
     height: unset;
     padding: 2rem;
     border-radius: 0.5rem;
