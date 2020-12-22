@@ -10,7 +10,7 @@ export const ButtonStyled = styled.button`
   padding: 0.4rem 0.4rem 0.1rem 0.4rem;
   transition: 0.3s color;
   margin: 0 0.4rem;
-  outline-offset: 1px;
+  outline: none;
 
   @media (max-width: 620px) {
     font-size: 1.2rem;
