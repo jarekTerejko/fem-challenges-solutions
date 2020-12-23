@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import DesktopBgLight from "../../images/bg-desktop-light.jpg";
 import DesktopBgDark from "../../images/bg-desktop-dark.jpg";
+import MobileBgLight from "../../images/bg-mobile-light.jpg";
+import MobileBgDark from "../../images/bg-mobile-dark.jpg";
 
 export const HeaderWrapper = styled.header`
   padding-top: 7.6rem;
@@ -17,6 +19,13 @@ export const HeaderWrapper = styled.header`
   @media (max-width: 620px) {
     padding-top: 5rem;
     max-height: 200px;
+  }
+
+  @media (max-width: 375px) {
+    background-image: ${({ activeTheme }) =>
+      activeTheme === "light"
+        ? `url(${MobileBgLight})`
+        : `url(${MobileBgDark})`};
   }
 `;
 
