@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
-export const TextInputWrapper = styled.form`
+export const TextInputWrapper = styled(motion.form)`
   margin-top: -15rem;
   margin-bottom: 3rem;
   padding: 2rem;

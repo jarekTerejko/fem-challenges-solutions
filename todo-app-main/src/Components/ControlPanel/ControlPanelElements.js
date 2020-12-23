@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
-export const ControlPanelWrapper = styled.div`
+export const ControlPanelWrapper = styled(motion.div)`
   display: grid;
   grid-template-columns: 160px 1fr 160px;
   align-items: center;

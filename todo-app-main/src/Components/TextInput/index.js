@@ -20,7 +20,12 @@ const TextInput = () => {
   };
 
   return (
-    <TextInputWrapper onSubmit={handleOnSubmit}>
+    <TextInputWrapper
+      onSubmit={handleOnSubmit}
+      transition={{ delay: 0.3 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+    >
       <TextInputCircle></TextInputCircle>
       <TextInputEl
         placeholder="Create a new todo..."

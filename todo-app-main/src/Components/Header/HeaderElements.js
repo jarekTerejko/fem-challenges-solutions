@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import DesktopBgLight from "../../images/bg-desktop-light.jpg";
 import DesktopBgDark from "../../images/bg-desktop-dark.jpg";
 
@@ -19,7 +20,7 @@ export const HeaderWrapper = styled.header`
   }
 `;
 
-export const HeaderHeadingWrapper = styled.div`
+export const HeaderHeadingWrapper = styled(motion.div)`
   display: flex;
   justify-content: space-between;
   align-items: center;

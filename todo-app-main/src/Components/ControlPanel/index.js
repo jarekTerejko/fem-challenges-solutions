@@ -18,7 +18,9 @@ const ControlPanel = () => {
 
   const todosLeft = todos.filter((todo) => !todo.isCompleted).length;
   return (
-    <ControlPanelWrapper>
+    <ControlPanelWrapper 
+    transition={{delay: .5}} initial={{opacity: 0, y: '-100vh' }} animate={{opacity: 1, y: 0 }}
+    >
       <ControlPanelColLeft>{`${todosLeft} items left`}</ControlPanelColLeft>
       <ControlPanelColCenter>
         {buttons.map((button) => {

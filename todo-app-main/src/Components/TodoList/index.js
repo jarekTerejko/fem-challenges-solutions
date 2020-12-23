@@ -48,7 +48,11 @@ const TodoList = () => {
       list = todos
         .filter((todo) => !todo.isCompleted)
         .map((todo) => {
-          return <Todo todo={todo} key={todo.id} />;
+          return (
+            <li key={todo.id}>
+              <Todo todo={todo} />
+            </li>
+          );
         });
     }
 
@@ -73,7 +77,11 @@ const TodoList = () => {
       list = todos
         .filter((todo) => todo.isCompleted)
         .map((todo) => {
-          return <Todo todo={todo} key={todo.id} />;
+          return (
+            <li key={todo.id}>
+              <Todo todo={todo} />
+            </li>
+          );
         });
     }
     return list;
@@ -84,6 +92,9 @@ const TodoList = () => {
       <Droppable droppableId="todos">
         {(provided) => (
           <TodoListWrapper
+            transition={{ delay: 0.4 }}
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
             style={{ listStyle: "none" }}
             {...provided.droppableProps}
             ref={provided.innerRef}
