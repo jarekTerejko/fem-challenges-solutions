@@ -10,7 +10,6 @@ export const TextInputWrapper = styled(motion.form)`
   grid-template-columns: 22px 1fr;
   gap: 20px;
   background-color: var(--white);
-  transition: 0.3s;
 
   @media (max-width: 620px) {
     margin-top: -9.6rem;

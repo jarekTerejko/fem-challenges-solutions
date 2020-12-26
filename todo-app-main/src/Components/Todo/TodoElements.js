@@ -12,7 +12,7 @@ export const TodoWrapper = styled.div`
 
   @media (max-width: 620px) {
     padding: 1.4rem 2rem;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     gap: 10px;
   }
 

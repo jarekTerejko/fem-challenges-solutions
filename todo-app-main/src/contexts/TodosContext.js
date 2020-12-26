@@ -1,15 +1,23 @@
 import React, { useState, createContext, useEffect } from "react";
+import { todos as todosData } from "../todosData";
 
 export const TodosContext = createContext();
 
 const TodosContextProvider = (props) => {
-  const initialData = JSON.parse(localStorage.getItem("todos")) || [];
   const initialTheme =
     JSON.parse(localStorage.getItem("activeTheme")) || "light";
 
-  const [todos, setTodos] = useState(initialData);
+  const [todos, setTodos] = useState([]);
   const [todosList, setTodosList] = useState("all");
   const [activeTheme, setActiveTheme] = useState(initialTheme);
+
+  useEffect(() => {
+    const storageTodos = JSON.parse(localStorage.getItem("todos"));
+    setTodos(storageTodos !== null ? storageTodos : todosData);
+    // return () => {
+    //   cleanup
+    // }
+  }, []);
 
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
