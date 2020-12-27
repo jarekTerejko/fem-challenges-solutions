@@ -5,7 +5,6 @@ export const ControlPanelWrapper = styled(motion.div)`
   display: grid;
   grid-template-columns: 160px 1fr 160px;
   align-items: center;
-  background-color: var(--very-light-gray);
   padding-bottom: 7rem;
 
   @media (max-width: 620px) {

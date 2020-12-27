@@ -84,6 +84,17 @@ const TodosContextProvider = (props) => {
     setTodos(newTodos);
   };
 
+  const editTodo = (id, text) => {
+    const newTodos = todos.map((todo) => {
+      if (todo.id === id) {
+        return { ...todo, todoText: text };
+      }
+      return todo;
+    });
+
+    setTodos(newTodos);
+  };
+
   return (
     <TodosContext.Provider
       value={{
@@ -98,6 +109,7 @@ const TodosContextProvider = (props) => {
         activeTheme,
         changeTheme,
         handleOnDragEnd,
+        editTodo,
       }}
     >
       {props.children}

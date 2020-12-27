@@ -2,14 +2,14 @@ import styled from "styled-components";
 
 export const TodoWrapper = styled.div`
   display: grid;
-  grid-template-columns: 22px 1fr 22px;
+  grid-template-columns: 22px 1fr 22px 22px;
   gap: 20px;
   align-items: center;
   padding: 2rem;
   background-color: var(--white);
   border-bottom: solid 1px var(--very-light-grayish-blue);
   cursor: pointer;
-
+  
   @media (max-width: 620px) {
     padding: 1.4rem 2rem;
     font-size: 1.2rem;
@@ -19,12 +19,8 @@ export const TodoWrapper = styled.div`
   &:hover :last-child {
     visibility: visible;
   }
-
-  &:first-of-type {
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
-  }
 `;
+
 export const TodoCircle = styled.div`
   height: 2.2rem;
   width: 2.2rem;

@@ -6,5 +6,9 @@ export const TodoListWrapper = styled(motion.ul)`
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
     background-color: var(--white);
+    & > div {
+      border-top-left-radius: 0.5rem;
+      border-top-right-radius: 0.5rem;
+    }
   }
 `;
