@@ -15,3 +15,6 @@ This repo contains solutions of challenges from [Frontend Mentor site](https://w
 3. FAQ accordion card
     [CHALLENGE](https://www.frontendmentor.io/challenges/faq-accordion-card-XlyjD0Oam)
     [SOLUTION](https://faq-accordion-card-terejko.netlify.app)
+3. Todo app
+    [CHALLENGE](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW)
+    [SOLUTION](https://todo-app-terejko.netlify.app)
