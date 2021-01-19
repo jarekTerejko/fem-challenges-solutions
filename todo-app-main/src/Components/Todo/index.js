@@ -51,14 +51,17 @@ const Todo = ({ todo }) => {
           isCompleted={todo.isCompleted}
           onClick={() => toggleTodo(todo.id)}
         >
-          <TodoCheckedImg src={CheckedImg} />
+          <TodoCheckedImg
+            src={CheckedImg}
+            alt={todo.isCompleted ? "Todo completed" : ""}
+          />
         </TodoCircle>
         <TodoText isCompleted={todo.isCompleted}>{todo.todoText}</TodoText>
         <TodoBtnRemove onClick={() => toggleForm()}>
-          <TodoRemoveImg src={EditImg} />
+          <TodoRemoveImg src={EditImg} alt="Edit todo" />
         </TodoBtnRemove>
         <TodoBtnRemove onClick={() => removeTodo(todo.id)}>
-          <TodoRemoveImg src={RemoveImg} />
+          <TodoRemoveImg src={RemoveImg} alt="Remove todo" />
         </TodoBtnRemove>
       </TodoWrapper>
     );

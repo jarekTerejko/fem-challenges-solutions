@@ -9,7 +9,7 @@ export const TodoWrapper = styled.div`
   background-color: var(--white);
   border-bottom: solid 1px var(--very-light-grayish-blue);
   cursor: pointer;
-  
+
   @media (max-width: 620px) {
     padding: 1.4rem 2rem;
     font-size: 1.2rem;
@@ -66,7 +66,7 @@ export const TodoCircle = styled.div`
     opacity: 1;
   }
 
-  &:after {
+  &::after {
     content: "";
     position: absolute;
     top: 1px;

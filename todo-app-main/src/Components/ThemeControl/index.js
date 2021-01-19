@@ -8,9 +8,10 @@ const ThemeControl = () => {
   const { activeTheme, changeTheme } = useContext(TodosContext);
 
   return (
-    <ThemeControlBtn onClick={changeTheme}>
+    <ThemeControlBtn onClick={changeTheme} type="button">
       <ThemeControlImg
         src={activeTheme === "light" ? `${MoonImg}` : `${SunImg}`}
+        alt={activeTheme === "light" ? "moon" : "sun"}
       />
     </ThemeControlBtn>
   );
