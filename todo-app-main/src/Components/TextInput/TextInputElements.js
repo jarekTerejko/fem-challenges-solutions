@@ -8,7 +8,7 @@ export const TextInputWrapper = styled(motion.form)`
   border-radius: 0.5rem;
   display: grid;
   grid-template-columns: 22px 1fr;
-  gap: 20px;
+  column-gap: 20px;
   background-color: var(--white);
 
   @media (max-width: 620px) {
@@ -44,4 +44,11 @@ export const TextInputEl = styled.input`
   &::placeholder {
     color: var(--dark-grayish-blue);
   }
+`;
+
+export const TextInputBtn = styled.button`
+  height: 0;
+  width: 0;
+  opacity: 0;
+  border: none;
 `;
