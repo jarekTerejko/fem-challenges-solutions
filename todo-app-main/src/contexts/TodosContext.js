@@ -5,7 +5,7 @@ export const TodosContext = createContext();
 
 const TodosContextProvider = (props) => {
   const initialTheme =
-    JSON.parse(localStorage.getItem("activeTheme")) || "light";
+    JSON.parse(localStorage.getItem("activeTheme")) || "dark";
 
   const [todos, setTodos] = useState([]);
   const [todosList, setTodosList] = useState("all");
