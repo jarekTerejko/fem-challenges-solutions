@@ -1,0 +1,268 @@
+@import url("https://fonts.googleapis.com/css2?family=Alata&display=swap");
+// font-family: 'Alata', sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap");
+// font-family: 'Josefin Sans', sans-serif;
+
+$White: hsl(0, 0%, 100%);
+$Black: hsl(0, 0%, 0%);
+$Dark-Gray: hsl(0, 0%, 55%);
+$Very-Dark-Gray: hsl(0, 0%, 41%);
+
+@mixin m-q($arg) {
+  @media screen and (max-width: $arg) {
+    @content;
+  }
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Alata", sans-serif;
+  font-size: 1.5rem;
+  color: $White;
+  // background: $Bright;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.container {
+  width: 100%;
+  max-width: 115rem;
+  padding: 0 2rem;
+  margin: 0 auto;
+}
+
+.heading-secondary {
+  color: $Black;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 5rem;
+  margin-bottom: 3rem;
+}
+
+.description {
+  color: $Dark-Gray;
+  line-height: 1.6;
+}
+
+.btn-primary {
+  background: $White;
+  border: 2px solid $Black;
+  padding: 0.9rem 3.4rem;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  word-wrap: nowrap;
+  word-spacing: 5px;
+  color: $Black;
+  font-family: "Alata", sans-serif;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    background: $Black;
+    color: $White;
+  }
+}
+
+// .header
+.header {
+  min-height: 65rem;
+  background-image: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.3) 100%
+    ),
+    url(./images/desktop/image-hero.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &__heading {
+    font-family: "Josefin Sans", sans-serif;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 7.2rem;
+    max-width: 66rem;
+    margin-top: 6rem;
+    padding: 3rem 5rem 3rem 3rem;
+    border: 1px solid $White;
+  }
+}
+
+// .navbar
+.navbar {
+  padding: 6.2rem 0;
+
+  &__site-logo--footer {
+    max-width: 14.4rem;
+    margin-bottom: 2rem;
+  }
+
+  &__navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+
+  &__nav-trigger {
+    display: none;
+    border: none;
+    background: transparent;
+    position: relative;
+    padding: 0.5rem;
+    cursor: pointer;
+
+    @include m-q(767px) {
+      display: block;
+      z-index: 2;
+    }
+  }
+
+  &__nav-list {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    transform: translateX(15px);
+
+    &--footer {
+      transform: translateX(-15px);
+    }
+  }
+
+  &__nav-item {
+    margin: 0 0.5rem;
+  }
+
+  &__nav-link {
+    padding: 1rem;
+    letter-spacing: 1px;
+    color: $White;
+    position: relative;
+
+    &:hover::before {
+      opacity: 1;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+      height: 2px;
+      width: 3rem;
+      background: $White;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+  }
+}
+
+// .about
+.about {
+  padding: 16rem 0;
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    position: relative;
+  }
+
+  &__heading-container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    max-width: 54rem;
+    padding: 9rem 0 0 9rem;
+    // z-index: 1;
+    background: $White;
+  }
+}
+
+// .our-creations
+.our-creations {
+  margin-bottom: 10rem;
+
+  &__intro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__heading {
+    margin-bottom: 0;
+  }
+}
+
+.footer {
+  padding: 4rem 0;
+  background: $Black;
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &__navigation {
+    display: block;
+  }
+
+  &__nav-list {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 3rem;
+  }
+
+  &__nav-item {
+    margin-left: 2rem;
+  }
+
+  &__nav-link {
+    position: relative;
+    height: 3.4rem;
+
+    &:hover::before {
+      opacity: 1;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 2px;
+      width: 100%;
+      background: $White;
+      opacity: 0;
+      transition: 0.3s opacity;
+    }
+  }
+
+  &__copyright {
+    color: $Very-Dark-Gray;
+    text-align: right;
+  }
+}
