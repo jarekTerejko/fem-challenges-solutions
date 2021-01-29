@@ -97,6 +97,22 @@ a {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @include m-q(750px) {
+    min-height: 65rem;
+    background-image: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.6) 0%,
+        rgba(0, 0, 0, 0.3) 100%
+      ),
+      url(./images/mobile/image-hero.jpg);
+  }
 
   &__heading {
     font-family: "Josefin Sans", sans-serif;
@@ -113,10 +129,43 @@ a {
 // .navbar
 .navbar {
   padding: 6.2rem 0;
+  overflow: hidden;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  transition: 0.3s;
 
-  &__site-logo--footer {
-    max-width: 14.4rem;
-    margin-bottom: 2rem;
+  @include m-q(750px) {
+    padding: 1.5rem 0;
+  }
+
+  &__scrolled {
+    background: black;
+    padding: 1.5rem 0;
+  }
+
+  &__site-link {
+    &--mobile {
+      display: none;
+
+      @include m-q(750px) {
+        display: block;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+      }
+    }
+  }
+
+  &__site-logo {
+    @include m-q(750px) {
+      max-width: 14.4rem;
+    }
+    &--footer {
+      max-width: 14.4rem;
+      margin-bottom: 2rem;
+    }
   }
 
   &__navigation {
@@ -133,10 +182,40 @@ a {
     position: relative;
     padding: 0.5rem;
     cursor: pointer;
+    height: 3.4rem;
+    transform: translateX(5px);
 
-    @include m-q(767px) {
+    @include m-q(750px) {
       display: block;
+      z-index: 1;
+    }
+
+    &--close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+    }
+  }
+
+  &__nav-list-wrapper {
+    @include m-q(750px) {
+      transform: translateX(100%);
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: $Black;
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
       z-index: 2;
+      padding: 1rem;
+      transition: 0.1s;
+    }
+    &.active {
+      @include m-q(750px) {
+        transform: translateX(0%);
+      }
     }
   }
 
@@ -145,6 +224,12 @@ a {
     list-style: none;
     align-items: center;
     transform: translateX(15px);
+
+    @include m-q(750px) {
+      transform: translateX(0);
+      flex-direction: column;
+      align-items: flex-start;
+    }
 
     &--footer {
       transform: translateX(-15px);
@@ -161,6 +246,13 @@ a {
     color: $White;
     position: relative;
 
+    @include m-q(750px) {
+      text-transform: uppercase;
+      font-weight: 300;
+      font-family: "Josefin Sans", sans-serif;
+      font-size: 2rem;
+    }
+
     &:hover::before {
       opacity: 1;
     }
@@ -176,6 +268,13 @@ a {
       background: $White;
       opacity: 0;
       transition: opacity 0.3s;
+    }
+
+    &--footer {
+      text-transform: initial;
+      font-weight: 400;
+      font-family: inherit;
+      font-size: 1.5rem;
     }
   }
 }
@@ -400,6 +499,12 @@ a {
   &__content {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+    @include m-q(750px) {
+      grid-template-columns: 1fr;
+      place-items: center;
+    }
   }
 
   &__navigation {
@@ -411,6 +516,10 @@ a {
     display: flex;
     justify-content: flex-end;
     margin-bottom: 3rem;
+
+    @include m-q(750px) {
+      justify-content: center;
+    }
   }
 
   &__nav-item {
@@ -441,5 +550,9 @@ a {
   &__copyright {
     color: $Very-Dark-Gray;
     text-align: right;
+
+    @include m-q(750px) {
+      text-align: center;
+    }
   }
 }

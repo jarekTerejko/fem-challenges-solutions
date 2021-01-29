@@ -30,18 +30,21 @@
     <header class="header">
       <div class="navbar">
         <div class="container">
-          <div class="navbar-navigation-wrapper">
-            <nav class="navbar__navigation">
-              <a href="#" class="navbar__site-link">
+          <nav class="navbar__navigation">
+            <a href="#" class="navbar__site-link">
+              <img src="images/logo.svg" alt="logo" class="navbar__site-logo" />
+            </a>
+            <button class="navbar__nav-trigger navbar__nav-trigger--open">
+              <img src="images/icon-hamburger.svg" alt="nav-open" />
+            </button>
+            <div class="navbar__nav-list-wrapper">
+              <a href="#" class="navbar__site-link navbar__site-link--mobile">
                 <img
                   src="images/logo.svg"
                   alt="logo"
                   class="navbar__site-logo"
                 />
               </a>
-              <button class="navbar__nav-trigger">
-                <img src="images/icon-hamburger.svg" alt="nav-open" />
-              </button>
               <ul class="navbar__nav-list">
                 <li class="navbar__nav-item">
                   <a href="#" class="navbar__nav-link">About</a>
@@ -59,11 +62,11 @@
                   <a href="#" class="navbar__nav-link">Support</a>
                 </li>
               </ul>
-            </nav>
-            <button class="navbar__nav-trigger">
-              <img src="images/icon-close.svg" alt="nav-close" />
-            </button>
-          </div>
+              <button class="navbar__nav-trigger navbar__nav-trigger--close">
+                <img src="images/icon-close.svg" alt="nav-close" />
+              </button>
+            </div>
+          </nav>
         </div>
       </div>
       <div class="container">
@@ -129,16 +132,24 @@
                   >
                 </li>
                 <li class="navbar__nav-item">
-                  <a href="#" class="navbar__nav-link">Careers</a>
+                  <a href="#" class="navbar__nav-link navbar__nav-link--footer"
+                    >Careers</a
+                  >
                 </li>
                 <li class="navbar__nav-item">
-                  <a href="#" class="navbar__nav-link">Events</a>
+                  <a href="#" class="navbar__nav-link navbar__nav-link--footer"
+                    >Events</a
+                  >
                 </li>
                 <li class="navbar__nav-item">
-                  <a href="#" class="navbar__nav-link">Products</a>
+                  <a href="#" class="navbar__nav-link navbar__nav-link--footer"
+                    >Products</a
+                  >
                 </li>
                 <li class="navbar__nav-item">
-                  <a href="#" class="navbar__nav-link">Support</a>
+                  <a href="#" class="navbar__nav-link navbar__nav-link--footer"
+                    >Support</a
+                  >
                 </li>
               </ul>
             </nav>

@@ -1,3 +1,4 @@
+// insert cards with background image
 const cardsData = [
   { className: "card-", title: "Deep earth" },
   { className: "card-", title: "Night arcade" },
@@ -22,3 +23,31 @@ const cards = cardsData
   .join("");
 
 cardWrapper.insertAdjacentHTML("afterbegin", cards);
+
+// mobile menu
+const openBtn = document.querySelector(".navbar__nav-trigger--open");
+const closeBtn = document.querySelector(".navbar__nav-trigger--close");
+const navWrapper = document.querySelector(".navbar__nav-list-wrapper");
+const navLinks = document.querySelectorAll(".navbar__nav-link");
+
+const openMenu = () => {
+  navWrapper.classList.add("active");
+};
+
+const closeMenu = () => {
+  navWrapper.classList.remove("active");
+};
+
+openBtn.addEventListener("click", openMenu);
+
+closeBtn.addEventListener("click", closeMenu);
+
+navLinks.forEach((link) => {
+  link.addEventListener("click", closeMenu);
+});
+
+// animate navbar on page scroll
+window.addEventListener("scroll", () => {
+  const navbar = document.querySelector(".navbar");
+  navbar.classList.toggle("navbar__scrolled", window.scrollY > 0);
+});
