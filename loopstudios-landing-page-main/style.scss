@@ -58,6 +58,10 @@ a {
   font-family: "Josefin Sans", sans-serif;
   font-size: 5rem;
   margin-bottom: 3rem;
+
+  @include m-q(375px) {
+    font-size: 2.4rem;
+  }
 }
 
 .description {
@@ -123,6 +127,24 @@ a {
     margin-top: 6rem;
     padding: 3rem 5rem 3rem 3rem;
     border: 1px solid $White;
+
+    @include m-q(750px) {
+      font-size: 5rem;
+    }
+
+    @include m-q(450px) {
+      font-size: 4rem;
+      padding: 3rem;
+    }
+
+    @include m-q(375px) {
+      font-size: 3.6rem;
+      padding: 2rem;
+    }
+
+    @include m-q(320px) {
+      font-size: 2.4rem;
+    }
   }
 }
 
@@ -171,7 +193,6 @@ a {
   &__navigation {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     position: relative;
   }
 
@@ -233,6 +254,11 @@ a {
 
     &--footer {
       transform: translateX(-15px);
+      
+      @include m-q(750px) {
+        transform: translateX(0);
+        align-items: center;
+      }
     }
   }
 
@@ -285,8 +311,26 @@ a {
 
   &__wrapper {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 731px 1fr;
     position: relative;
+    gap: 50px;
+
+    @include m-q(771px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__bg-img {
+    background-image: url(./images/desktop/image-interactive.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 68.39%; /* (img-height / img-width * container-width) */
+
+    @include m-q(654px) {
+      background-image: url(./images/mobile/image-interactive.jpg);
+      padding-top: 68.5%; /* (img-height / img-width * container-width) */
+    }
   }
 
   &__heading-container {
@@ -295,8 +339,30 @@ a {
     right: 0;
     max-width: 54rem;
     padding: 9rem 0 0 9rem;
-    // z-index: 1;
     background: $White;
+
+    @include m-q(1100px) {
+      padding: 3rem 0 0 3rem;
+    }
+
+    @include m-q(750px) {
+      position: static;
+      padding: 0 2rem;
+      max-width: 50rem;
+      text-align: center;
+      margin: 0 auto;
+    }
+  }
+
+  &__heading {
+    @include m-q(1100px) {
+      font-size: 3.6rem;
+      margin-bottom: 2rem;
+    }
+
+    @include m-q(375px) {
+      font-size: 2.4rem;
+    }
   }
 }
 
@@ -503,12 +569,17 @@ a {
 
     @include m-q(750px) {
       grid-template-columns: 1fr;
-      place-items: center;
+      // place-items: center;
+      text-align: center;
     }
   }
 
   &__navigation {
-    display: block;
+    // display: block;
+    flex-direction: column;
+    @include m-q(750px) {
+      align-items: center;
+    }
   }
 
   &__nav-list {
@@ -519,6 +590,9 @@ a {
 
     @include m-q(750px) {
       justify-content: center;
+      text-align: center;
+      align-items: center;
+      transform: translateX(0);
     }
   }
 
