@@ -87,6 +87,19 @@ a {
     background: $Black;
     color: $White;
   }
+
+  &--mobile-hide {
+    @include m-q(694px) {
+      display: none;
+    }
+  }
+
+  &--show-mobile {
+    display: none;
+    @include m-q(694px) {
+      display: block;
+    }
+  }
 }
 
 // .header
@@ -194,6 +207,7 @@ a {
     display: flex;
     justify-content: space-between;
     position: relative;
+    align-items: center;
   }
 
   &__nav-trigger {
@@ -254,7 +268,7 @@ a {
 
     &--footer {
       transform: translateX(-15px);
-      
+
       @include m-q(750px) {
         transform: translateX(0);
         align-items: center;
@@ -308,6 +322,10 @@ a {
 // .about
 .about {
   padding: 16rem 0;
+
+  @include m-q(694px) {
+    padding: 10rem 0;
+  }
 
   &__wrapper {
     display: grid;
@@ -370,6 +388,10 @@ a {
 .our-creations {
   margin-bottom: 18.5rem;
 
+  @include m-q(694px) {
+    margin-bottom: 10rem;
+  }
+
   &__intro {
     display: flex;
     align-items: center;
@@ -379,16 +401,34 @@ a {
 
   &__heading {
     margin-bottom: 0;
+
+    @include m-q(1100px) {
+      font-size: 3.6rem;
+    }
+
+    @include m-q(694px) {
+      margin: auto;
+    }
+
+    @include m-q(375px) {
+      font-size: 2.4rem;
+    }
+  }
+
+  &__btn {
+    margin-top: 1rem;
+    justify-self: center;
   }
 
   &__cards-wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 255px));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 255px));
     gap: 30px;
     justify-content: center;
 
-    @include m-q(750px) {
+    @include m-q(694px) {
       grid-template-columns: 1fr;
+      gap: 24px;
     }
   }
 
@@ -396,164 +436,115 @@ a {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 45rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 2rem;
+    background-size: contain;
     transition: opacity 0.3s;
+    position: relative;
 
     &:hover {
       opacity: 0.5;
     }
-
-    @include m-q(750px) {
-      min-height: 24rem;
-    }
   }
 
   &__card-title {
+    position: absolute;
+    left: 40px;
+    bottom: 40px;
     text-transform: uppercase;
     font-weight: 300;
     font-family: "Josefin Sans", sans-serif;
     font-size: 3rem;
     color: $White;
+
+    @include m-q(600px) {
+      left: 30px;
+      bottom: 25px;
+      font-size: 2.4rem;
+    }
+
+    @include m-q(500px) {
+      left: 25px;
+      bottom: 20px;
+      font-size: 1.8rem;
+    }
   }
 
   &__card-1 {
-    background-image: linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0.6) 0%,
-        rgba(0, 0, 0, 0.3) 100%
-      ),
-      url(./images/desktop/image-deep-earth.jpg);
+    background-image: url(./images/desktop/image-deep-earth.jpg);
+    padding-top: 175.78%;
 
-    @include m-q(750px) {
-      background-image: linear-gradient(
-          0deg,
-          rgba(0, 0, 0, 0.6) 0%,
-          rgba(0, 0, 0, 0.3) 100%
-        ),
-        url(./images/mobile/image-deep-earth.jpg);
+    @include m-q(694px) {
+      background-image: url(./images/mobile/image-deep-earth.jpg);
+      padding-top: 36.7%;
     }
   }
+
   &__card-2 {
-    background-image: linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0.6) 0%,
-        rgba(0, 0, 0, 0.3) 100%
-      ),
-      url(./images/desktop/image-night-arcade.jpg);
+    background-image: url(./images/desktop/image-night-arcade.jpg);
+    padding-top: 175.8%;
 
-    @include m-q(750px) {
-      background-image: linear-gradient(
-          0deg,
-          rgba(0, 0, 0, 0.6) 0%,
-          rgba(0, 0, 0, 0.3) 100%
-        ),
-        url(./images/mobile/image-night-arcade.jpg);
+    @include m-q(694px) {
+      background-image: url(./images/mobile/image-night-arcade.jpg);
+      padding-top: 36.7%;
     }
   }
+
   &__card-3 {
-    background-image: linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0.6) 0%,
-        rgba(0, 0, 0, 0.3) 100%
-      ),
-      url(./images/desktop/image-soccer-team.jpg);
+    background-image: url(./images/desktop/image-soccer-team.jpg);
+    padding-top: 175.8%;
 
-    @include m-q(750px) {
-      background-image: linear-gradient(
-          0deg,
-          rgba(0, 0, 0, 0.6) 0%,
-          rgba(0, 0, 0, 0.3) 100%
-        ),
-        url(./images/mobile/image-soccer-team.jpg);
+    @include m-q(694px) {
+      background-image: url(./images/mobile/image-soccer-team.jpg);
+      padding-top: 36.7%;
     }
   }
+
   &__card-4 {
-    background-image: linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0.6) 0%,
-        rgba(0, 0, 0, 0.3) 100%
-      ),
-      url(./images/desktop/image-grid.jpg);
+    background-image: url(./images/desktop/image-grid.jpg);
+    padding-top: 175.8%;
 
-    @include m-q(750px) {
-      background-image: linear-gradient(
-          0deg,
-          rgba(0, 0, 0, 0.6) 0%,
-          rgba(0, 0, 0, 0.3) 100%
-        ),
-        url(./images/mobile/image-grid.jpg);
+    @include m-q(694px) {
+      background-image: url(./images/mobile/image-grid.jpg);
+      padding-top: 36.7%;
     }
   }
+
   &__card-5 {
-    background-image: linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0.6) 0%,
-        rgba(0, 0, 0, 0.3) 100%
-      ),
-      url(./images/desktop/image-from-above.jpg);
+    background-image: url(./images/desktop/image-from-above.jpg);
+    padding-top: 175.8%;
 
-    @include m-q(750px) {
-      background-image: linear-gradient(
-          0deg,
-          rgba(0, 0, 0, 0.6) 0%,
-          rgba(0, 0, 0, 0.3) 100%
-        ),
-        url(./images/mobile/image-from-above.jpg);
+    @include m-q(694px) {
+      background-image: url(./images/mobile/image-from-above.jpg);
+      padding-top: 36.7%;
     }
   }
+
   &__card-6 {
-    background-image: linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0.6) 0%,
-        rgba(0, 0, 0, 0.3) 100%
-      ),
-      url(./images/desktop/image-pocket-borealis.jpg);
+    background-image: url(./images/desktop/image-pocket-borealis.jpg);
+    padding-top: 175.8%;
 
-    @include m-q(750px) {
-      background-image: linear-gradient(
-          0deg,
-          rgba(0, 0, 0, 0.6) 0%,
-          rgba(0, 0, 0, 0.3) 100%
-        ),
-        url(./images/mobile/image-pocket-borealis.jpg);
+    @include m-q(694px) {
+      background-image: url(./images/mobile/image-pocket-borealis.jpg);
+      padding-top: 36.7%;
     }
   }
+
   &__card-7 {
-    background-image: linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0.6) 0%,
-        rgba(0, 0, 0, 0.3) 100%
-      ),
-      url(./images/desktop/image-curiosity.jpg);
+    background-image: url(./images/desktop/image-curiosity.jpg);
+    padding-top: 175.8%;
 
-    @include m-q(750px) {
-      background-image: linear-gradient(
-          0deg,
-          rgba(0, 0, 0, 0.6) 0%,
-          rgba(0, 0, 0, 0.3) 100%
-        ),
-        url(./images/mobile/image-curiosity.jpg);
+    @include m-q(694px) {
+      background-image: url(./images/mobile/image-curiosity.jpg);
+      padding-top: 36.7%;
     }
   }
-  &__card-8 {
-    background-image: linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0.6) 0%,
-        rgba(0, 0, 0, 0.3) 100%
-      ),
-      url(./images/desktop/image-fisheye.jpg);
 
-    @include m-q(750px) {
-      background-image: linear-gradient(
-          0deg,
-          rgba(0, 0, 0, 0.6) 0%,
-          rgba(0, 0, 0, 0.3) 100%
-        ),
-        url(./images/mobile/image-fisheye.jpg);
+  &__card-8 {
+    background-image: url(./images/desktop/image-fisheye.jpg);
+    padding-top: 175.8%;
+
+    @include m-q(694px) {
+      background-image: url(./images/mobile/image-fisheye.jpg);
+      padding-top: 36.7%;
     }
   }
 }
