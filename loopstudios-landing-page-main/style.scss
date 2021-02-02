@@ -31,7 +31,7 @@ body {
   font-family: "Alata", sans-serif;
   font-size: 1.5rem;
   color: $White;
-  // background: $Bright;
+  background: $Bright;
 }
 
 img {
@@ -67,6 +67,7 @@ a {
 .description {
   color: $Dark-Gray;
   line-height: 1.6;
+  padding-bottom: 0.5rem;
 }
 
 .btn-primary {
@@ -170,6 +171,7 @@ a {
   left: 0;
   top: 0;
   width: 100%;
+  z-index: 1;
   transition: 0.3s;
 
   @include m-q(750px) {
@@ -355,7 +357,7 @@ a {
 
   &__heading-container {
     position: absolute;
-    bottom: 0;
+    bottom: -1px;
     right: 0;
     max-width: 54rem;
     padding: 9rem 0 0 9rem;
@@ -645,7 +647,7 @@ a {
   }
 }
 
-.attribution{
+.attribution {
   width: 100%;
   position: absolute;
   bottom: 5px;
