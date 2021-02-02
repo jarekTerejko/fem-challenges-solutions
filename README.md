@@ -18,3 +18,6 @@ This repo contains solutions of challenges from [Frontend Mentor site](https://w
 3. Todo app
     [CHALLENGE](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW)
     [SOLUTION](https://todo-app-terejko.netlify.app)
+4. Loopstudios landing page
+    [CHALLENGE](https://www.frontendmentor.io/challenges/loopstudios-landing-page-N88J5Onjw)
+    [SOLUTION] (https://loopstudios-landing-page-terejko.netlify.app)
