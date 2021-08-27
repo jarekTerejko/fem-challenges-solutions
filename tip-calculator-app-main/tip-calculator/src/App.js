@@ -1,9 +1,16 @@
+import Splitter from "./components/Splitter";
+import { SiteLink } from "./components/SiteLink/SiteLinkElement";
+import { ImageElement } from "./components/Image/ImageElement";
+import Logo from "./images/logo.svg";
 
 function App() {
   return (
-    <div >
-      
-    </div>
+    <>
+      <SiteLink href="/">
+        <ImageElement src={Logo} />
+      </SiteLink>
+      <Splitter />
+    </>
   );
 }
 
