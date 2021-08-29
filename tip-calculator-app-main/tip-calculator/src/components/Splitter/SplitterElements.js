@@ -40,7 +40,7 @@ export const SplitterContentColRight = styled.div`
 export const InputFullWidthWrapper = styled.div`
   margin-top: 1rem;
   position: relative;
-  
+
   &:first-of-type {
     margin-bottom: 4rem;
   }
@@ -63,7 +63,7 @@ export const InputImage = styled(ImageElement)`
   position: absolute;
   top: 18px;
   left: 18px;
-`
+`;
 
 export const InputFullWidthEl = styled.input`
   display: block;
@@ -167,6 +167,15 @@ export const TipPercentBtn = styled.button`
   font-family: var(--Font);
   font-weight: 700;
 
+  &.active {
+    background: ${(props) => (props.isActive ? "var(--Strong-cyan)" : "")};
+    color: var(--Very-dark-cyan);
+
+    &:hover {
+      background: ${(props) => (props.isActive ? "var(--Strong-cyan)" : "")};
+    }
+  }
+
   &:hover {
     color: var(--Very-dark-cyan);
     background: var(--Light-grayish-cyan);
@@ -234,9 +243,7 @@ export const ErrorMsg = styled.span`
   font-weight: 700;
 
   @media screen and (max-width: 920px) {
-   font-size: 1rem;
-   top: -26px
+    font-size: 1rem;
+    top: -26px;
   }
 `;
-
-

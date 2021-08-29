@@ -22,6 +22,36 @@ import IconDollar from "../../images/icon-dollar.svg";
 import IconPerson from "../../images/icon-person.svg";
 
 const Splitter = () => {
+  const [percentButtons, setPercentButtons] = useState([
+    { percent: "5%", isActive: false },
+    { percent: "10%", isActive: false },
+    { percent: "15%", isActive: false },
+    { percent: "25%", isActive: false },
+    { percent: "50%", isActive: false },
+  ]);
+
+  const togglePercentBtn = (index) => {
+    setPercentButtons(
+      percentButtons.map((btn, i) => {
+        if (i === index) {
+          btn.isActive = true;
+        } else {
+          btn.isActive = false;
+        }
+        return btn;
+      })
+    );
+  };
+
+  const resetPercentBtn = () => {
+    setPercentButtons(
+      percentButtons.map((btn) => {
+        btn.isActive = false;
+        return btn;
+      })
+    );
+  };
+
   const [inputValues, setInputValues] = useState({
     billValue: "",
     peopleValue: "",
@@ -40,6 +70,7 @@ const Splitter = () => {
     }
 
     resetCountingValues();
+    resetPercentBtn();
     setInputValues({ ...inputValues, [e.target.name]: e.target.value });
   };
 
@@ -58,25 +89,27 @@ const Splitter = () => {
     setTipAmount(null);
   };
 
-  const buttons = ["5%", "10%", "15%", "25%", "50%"];
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (e.target.name === "percentForm" && inputValues.customPercent) {
       countTip(e);
+      e.target.firstChild.blur();
     }
   };
 
-  const countTip = (e) => {
+  const countTip = (e, i) => {
     setIsCounting(true);
-
     let tipNumber;
 
     tipNumber =
       e.target.name === "percentForm"
         ? parseInt(inputValues.customPercent) / 100
         : parseInt(e.target.innerText.slice(0, -1)) / 100;
+
+    if (e.target.name === "") {
+      togglePercentBtn(i);
+    }
 
     const billNumber = parseFloat(inputValues.billValue);
     const peopleNumber = parseFloat(inputValues.peopleValue);
@@ -131,6 +164,7 @@ const Splitter = () => {
     setIsCounting(false);
     setIsPeopleError(false);
     setIsBillError(false);
+    resetPercentBtn();
   };
 
   return (
@@ -157,11 +191,18 @@ const Splitter = () => {
           </InputFullWidthWrapper>
           <SplitterElementsHeading>Select Tip %</SplitterElementsHeading>
           <TipPercentBtnWrapper>
-            {buttons.map((btn) => (
-              <TipPercentBtn key={btn} onClick={(e) => countTip(e)}>
-                {btn}
-              </TipPercentBtn>
-            ))}
+            {percentButtons.map((btn, i) => {
+              return (
+                <TipPercentBtn
+                  key={i}
+                  onClick={(e) => countTip(e, i)}
+                  className={btn.isActive ? "active" : ""}
+                  isActive={btn.isActive}
+                >
+                  {btn.percent}
+                </TipPercentBtn>
+              );
+            })}
             <PercentForm
               name="percentForm"
               onSubmit={handleSubmit}
@@ -236,7 +277,7 @@ const Splitter = () => {
             disabled={
               inputValues.billValue === "" &&
               inputValues.peopleValue === "" &&
-              inputValues.customPercent=== "" 
+              inputValues.customPercent === ""
             }
             onClick={resetValues}
           >
