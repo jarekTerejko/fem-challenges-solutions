@@ -15,7 +15,7 @@ export const TextInputWrapper = styled(motion.form)`
     margin-top: -9.6rem;
     padding: 1.4rem 2rem;
     margin-bottom: 2rem;
-    gap: 10px;
+    column-gap: 10px;
   }
 `;
 

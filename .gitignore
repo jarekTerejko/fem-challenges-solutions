@@ -1,5 +1,4 @@
 .vscode/settings.json
-*.css
 *css.map
 *eslintcache
 *debug.log
